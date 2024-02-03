@@ -18,7 +18,7 @@
   </style>
   <body>
     <div id="chart">
-      <p>Monthly Sales Data</p>
+      <!-- <p>Monthly Sales Data</p> -->
       <canvas id="myChart"></canvas>
     </div>
 
@@ -27,7 +27,7 @@
     <script>
       const ctx = document.getElementById("myChart");
 
-      new Chart(ctx, {
+      const newChart = new Chart(ctx, {
         type: "bar",
         data: {
           labels: ["January", "February", "March", "April", "May"],
@@ -48,6 +48,9 @@
           },
         },
       });
+
+      window.onload = newChart();
+      
     </script>
   </body>
 </html>
