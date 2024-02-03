@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    #myChart {
+      margin: auto;
+      width: 50%;
+      height: 40vh;
+    }
+    p {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div id="chart">
+      <p>Monthly Sales Data</p>
+      <canvas id="myChart"></canvas>
+    </div>
 
-  <div>
-    <p>Monthly Sales Data</p>
-    <canvas id="myChart" height="300" width="800"></canvas>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <script src="script.js">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  </script>
-</body>
+    <script>
+      const ctx = document.getElementById("myChart");
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["January", "February", "March", "April", "May"],
+          datasets: [
+            {
+              label: "Monthly Sales",
+              data: [65, 59, 80, 81, 55],
+              borderColor: "rgba(219,242,242,4)",
+              backgroundColor: "rgba(219,242,242,0.7)",
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
 </html>
